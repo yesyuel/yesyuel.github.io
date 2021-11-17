@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>MyLinkedList</title>
+    <url>/2021/11/16/MyLinkedLlist/</url>
+    <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyLinkedList</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LinkedNode</span>&#123;</span></span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        LinkedNode* next;</span><br><span class="line">        <span class="built_in">LinkedNode</span>(<span class="keyword">int</span> val) : <span class="built_in">val</span>(val),<span class="built_in">next</span>(<span class="literal">nullptr</span>)&#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">MyLinkedList</span>() &#123;</span><br><span class="line">        fakeh=<span class="keyword">new</span> <span class="built_in">LinkedNode</span>(<span class="number">0</span>);</span><br><span class="line">        _size=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index&gt;=_size||index&lt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">auto</span> cur=fakeh-&gt;next;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(index--)</span><br><span class="line">            cur=cur-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> cur-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addAtHead</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> newnode=<span class="keyword">new</span> <span class="built_in">LinkedNode</span>(val);</span><br><span class="line">        newnode-&gt;next=fakeh-&gt;next;</span><br><span class="line">        fakeh-&gt;next=newnode;</span><br><span class="line">        ++_size;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addAtTail</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> cur=fakeh;</span><br><span class="line">        <span class="keyword">while</span> (cur-&gt;next!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            cur=cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> newnode=<span class="keyword">new</span> <span class="built_in">LinkedNode</span>(val);</span><br><span class="line">        cur-&gt;next=newnode;</span><br><span class="line">        ++_size;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addAtIndex</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index&gt;_size)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(index==_size)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">addAtTail</span>(val);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(index&lt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">addAtHead</span>(val);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> newnode=<span class="keyword">new</span> <span class="built_in">LinkedNode</span>(val);</span><br><span class="line">        <span class="keyword">auto</span> cur=fakeh;</span><br><span class="line">        <span class="keyword">while</span>(index--)&#123;</span><br><span class="line">            cur=cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        newnode-&gt;next=cur-&gt;next;</span><br><span class="line">        cur-&gt;next=newnode;</span><br><span class="line">        _size++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteAtIndex</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index&gt;=_size||index&lt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">auto</span> cur=fakeh;</span><br><span class="line">        <span class="keyword">while</span> (index--)&#123;</span><br><span class="line">            cur=cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> tp=cur-&gt;next;</span><br><span class="line">        cur-&gt;next=tp-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> tp;</span><br><span class="line">        _size--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> k=fakeh;</span><br><span class="line">        <span class="keyword">while</span>(k-&gt;next!=<span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cout&lt;&lt;k-&gt;next-&gt;val&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">            k=k-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> _size;</span><br><span class="line">    LinkedNode *fakeh;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo+github搭建个人博客 (Windows)</title>
+    <url>/2021/11/16/hexo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h4><p>搭建博客需要以下软件</p>
+<p>Git <a href="https://git-scm.com/">git</a>  <a href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html">安装教程</a></p>
+<p>Node.js <a href="https://nodejs.org/en/">nodejs</a>  <a href="https://www.cnblogs.com/liuqiyun/p/8133904.html">安装教程</a></p>
+<p>Notepad++ <a href="https://notepad-plus.en.softonic.com/">notepad++</a></p>
+<p>压缩软件</p>
+<p>下载链接、安装教程已附在后方，基本没有大问题。下面重点为hexo的安装和配</p>
+<p>置。</p>
+<h4 id="搭建github库"><a href="#搭建github库" class="headerlink" title="搭建github库"></a>搭建github库</h4><p>new新建仓库，注意仓库名为 github用户名.github.io</p>
+<p>若github用户名为samual，则仓库名为 samual.github.io</p>
+<p>勾选 Add a README file</p>
+<h4 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h4><p>在任意文件夹下右键Git Bash Here, </p>
+<p>输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;github注册邮箱&quot;</span></span><br><span class="line"><span class="comment">#之后敲几次回车直到出现新的一行</span></span><br></pre></td></tr></table></figure>
+
+<p>注意git命令行鼠标右键可进行复制粘贴</p>
+<p>copy与paste</p>
+<p>完成后进入C:\Users\用户名.ssh</p>
+<p>注意自己电脑的用户名</p>
+<p>打开.ssh文件，用notepad++编辑id_rsa.pub，完全复制其中的内容</p>
+<p>打开github，在settings中找到SSH and GPG keys</p>
+<p>新建SSH keys，title无所谓，将id_rsa.pub中的内容复制到key中</p>
+<h4 id="在本地生成博客"><a href="#在本地生成博客" class="headerlink" title="在本地生成博客"></a>在本地生成博客</h4><p>在任意地方新建文件夹，在其中git bash;</p>
+<p>输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo</span><br><span class="line">hexo init <span class="comment">#这一步初始化，从其他地方拷贝文件到该文件夹内</span></span><br><span class="line">hexo s <span class="comment">#启动服务，访问git中出现的网址</span></span><br></pre></td></tr></table></figure>
+
+<p>CTRL C 关闭本地服务器，网页无法访问</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#如果npm命令执行缓慢，可以使用淘宝镜像</span></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"><span class="comment">#之后所有的npm改为cnpm</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="网上生成博客"><a href="#网上生成博客" class="headerlink" title="网上生成博客"></a>网上生成博客</h4><p>在文件夹中找到_config.yml，用vscode或notepa++打开，在最下方找到deploy；</p>
+<p>改为以下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: ssh://git@github.com:github用户名/github用户名.github.io.git</span><br><span class="line">  <span class="comment">#注意修改</span></span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+
+<p>然后使用git</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装工具</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo g <span class="comment">#生成页面</span></span><br><span class="line">hexo d <span class="comment">#将本地内容上传到仓库</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="写、发布博客"><a href="#写、发布博客" class="headerlink" title="写、发布博客"></a>写、发布博客</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;博客名&quot;</span></span><br><span class="line"><span class="comment">#会在source\_posts文件夹下生成.md 文件</span></span><br><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line"><span class="comment">#写好后发布</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a><strong>主题配置</strong></h4><p>如果不喜欢现在的主题可以去next官网或者GitHub上自行搜索。<a href="http://theme-next.iissnan.com/">next官网</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数组：双指针</title>
+    <url>/2021/11/17/%E6%95%B0%E7%BB%84%EF%BC%9A%E5%8F%8C%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h5 id="删除排序数组中的重复项"><a href="#删除排序数组中的重复项" class="headerlink" title="删除排序数组中的重复项"></a>删除排序数组中的重复项</h5><p><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/">Leetcode链接</a></p>
+<p>通过一个快指针和一个慢指针在一个for循环中完成删除</p>
+<p>时间复杂度O(n)</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> fa,slow=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums.<span class="built_in">size</span>()==<span class="number">0</span>)   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(fa=<span class="number">1</span>;fa&lt;nums.<span class="built_in">size</span>();++fa)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[fa]&gt;nums[slow])</span><br><span class="line">                nums[++slow]=nums[fa];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="比较含退格的字符串"><a href="#比较含退格的字符串" class="headerlink" title="比较含退格的字符串"></a>比较含退格的字符串</h5><p><a href="https://leetcode.com/problems/backspace-string-compare/">Leetcode链接</a></p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">backspaceCompare</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i=s.<span class="built_in">size</span>()<span class="number">-1</span>,j=t.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> ns=<span class="number">0</span>,nt=<span class="number">0</span>;<span class="comment">//记录s与t中#的数量</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span>)<span class="comment">//从后向前消除s的#</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">&#x27;#&#x27;</span>)   ns++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(ns&gt;<span class="number">0</span>)    ns--;</span><br><span class="line">                <span class="keyword">else</span>    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span>)<span class="comment">//从后向前消除t的#</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(t[j]==<span class="string">&#x27;#&#x27;</span>)   nt++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nt&gt;<span class="number">0</span>)    nt--;</span><br><span class="line">                <span class="keyword">else</span>    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;<span class="number">0</span>||j&lt;<span class="number">0</span>)    <span class="keyword">break</span>;<span class="comment">//当某个字符串遍历完时退出</span></span><br><span class="line">        <span class="keyword">if</span>(s[i]!=t[j])  <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//在某处字符不同可判定不相等</span></span><br><span class="line">        i--;j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">-1</span>&amp;&amp;j==<span class="number">-1</span>)<span class="comment">//字符，长度均相等</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>此题用栈也可较容易地实现</p>
+]]></content>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数组：滑动窗口</title>
+    <url>/2021/11/17/%E6%95%B0%E7%BB%84%EF%BC%9A%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>链表：虚拟头节点</title>
+    <url>/2021/11/17/%E9%93%BE%E8%A1%A8%EF%BC%9A%E8%99%9A%E6%8B%9F%E5%A4%B4%E8%8A%82%E7%82%B9/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+</search>
