@@ -28,7 +28,7 @@
 <meta property="og:description" content="使用虚拟头节点使链表结构统一，操作更方便">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-17T01:30:53.000Z">
-<meta property="article:modified_time" content="2021-11-17T13:42:30.211Z">
+<meta property="article:modified_time" content="2021-11-18T12:16:33.651Z">
 <meta property="article:author" content="mqp">
 <meta property="article:tag" content="链表">
 <meta name="twitter:card" content="summary">
@@ -211,10 +211,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-11-17 09:30:53 / 修改时间：21:42:30" itemprop="dateCreated datePublished" datetime="2021-11-17T09:30:53+08:00">2021-11-17</time>
+              <time title="创建时间：2021-11-17 09:30:53" itemprop="dateCreated datePublished" datetime="2021-11-17T09:30:53+08:00">2021-11-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-18 20:16:33" itemprop="dateModified" datetime="2021-11-18T20:16:33+08:00">2021-11-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -237,7 +243,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h5 id="移除链表元素"><a href="#移除链表元素" class="headerlink" title="移除链表元素"></a>移除链表元素</h5><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-linked-list-elements/">leetcode203https://leetcode.com/problems/r…</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//链表结构体</span></span><br><span class="line">  Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> &#123;</span></span><br><span class="line">      <span class="keyword">int</span> val;</span><br><span class="line">      ListNode *next;</span><br><span class="line">      <span class="built_in">ListNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">      <span class="built_in">ListNode</span>(<span class="keyword">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">      <span class="built_in">ListNode</span>(<span class="keyword">int</span> x, ListNode *next) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(next) &#123;&#125;</span><br><span class="line">  &#125;;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p>若直接使用原始链表，删除头节点的操作与其他节点不同</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 删除头结点 </span></span><br><span class="line">        <span class="keyword">while</span> (head != <span class="literal">NULL</span> &amp;&amp; head-&gt;val == val) &#123; <span class="comment">// 注意使用while</span></span><br><span class="line">            ListNode* tmp = head;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            <span class="keyword">delete</span> tmp;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除非头结点</span></span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="literal">NULL</span> &amp;&amp; cur-&gt;next!= <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cur-&gt;next-&gt;val == val) &#123;</span><br><span class="line">                ListNode* tmp = cur-&gt;next;</span><br><span class="line">                cur-&gt;next = cur-&gt;next-&gt;next;</span><br><span class="line">                <span class="keyword">delete</span> tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用虚拟头节点：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ListNode* dummyHead=<span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line">dummyHead-&gt;next=head</span><br><span class="line"><span class="comment">//使原先的头节点失去特殊地位</span></span><br><span class="line"><span class="comment">//最后记得要返回dummyHead-&gt;next.</span></span><br></pre></td></tr></table></figure>
+
+<p>代码为</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeElements</span><span class="params">(ListNode* head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode *dummyHead=<span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line">        dummyHead-&gt;next=head;</span><br><span class="line">        <span class="keyword">auto</span> vi=dummyHead;</span><br><span class="line">        <span class="keyword">while</span>(vi-&gt;next!=<span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(vi-&gt;next-&gt;val==val)&#123;</span><br><span class="line">                <span class="keyword">auto</span> tmp=vi-&gt;next;</span><br><span class="line">                vi-&gt;next=tmp-&gt;next;</span><br><span class="line">                <span class="keyword">delete</span> tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                vi=vi-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        head=dummyHead-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> dummyHead;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -320,6 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">移除链表元素</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
