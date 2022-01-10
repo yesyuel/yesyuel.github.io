@@ -99,11 +99,6 @@
       </tags>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/2022/01/10/test/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>配置opencv-c++ opencv4</title>
     <url>/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/</url>
     <content><![CDATA[<h4 id="I-下载opencv"><a href="#I-下载opencv" class="headerlink" title="I 下载opencv"></a>I 下载opencv</h4><p>下载地址：<a href="https://opencv.org/">opencv</a></p>
