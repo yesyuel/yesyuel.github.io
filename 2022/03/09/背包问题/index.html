@@ -20,17 +20,20 @@
     var CONFIG = {"hostname":"viceam.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="与时偕行">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SegFt">
-<meta property="og:url" content="http://viceam.com/archives/2021/11/index.html">
+  <meta name="description" content="0-1背包与完全背包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="背包问题">
+<meta property="og:url" content="http://viceam.com/2022/03/09/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="SegFt">
-<meta property="og:description" content="与时偕行">
+<meta property="og:description" content="0-1背包与完全背包">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-09T13:27:19.000Z">
+<meta property="article:modified_time" content="2022-03-12T09:18:55.610Z">
 <meta property="article:author" content="mqp">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://viceam.com/archives/2021/11/">
+<link rel="canonical" href="http://viceam.com/2022/03/09/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
 
 
 <script id="page-configurations">
@@ -38,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | SegFt</title>
+  <title>背包问题 | SegFt</title>
   
 
 
@@ -186,216 +189,138 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://viceam.com/2022/03/09/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kkc.jpg">
+      <meta itemprop="name" content="mqp">
+      <meta itemprop="description" content="与时偕行">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SegFt">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          背包问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-09 21:27:19" itemprop="dateCreated datePublished" datetime="2022-03-09T21:27:19+08:00">2022-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-12 17:18:55" itemprop="dateModified" datetime="2022-03-12T17:18:55+08:00">2022-03-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 21 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/03/09/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/03/09/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description">0-1背包与完全背包</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h3 id="0-1背包"><a href="#0-1背包" class="headerlink" title="0-1背包"></a>0-1背包</h3><h4 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h4><h5 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h5><p>有n件物品与一个承重w的背包，第i件物品的重量是weight[i]，价值是value[i]，每件物品只能用一次，求装入物品价值总和的最大值。</p>
+<h6 id="dp数组含义"><a href="#dp数组含义" class="headerlink" title="dp数组含义"></a>dp数组含义</h6><p>dp[i] [j] 表示从物品0-i中取物品，放入承重为j的背包中的最大价值。</p>
+<h6 id="递推公式"><a href="#递推公式" class="headerlink" title="递推公式"></a>递推公式</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>][j]<span class="comment">/*不装入物品i*/</span>, dp[i - <span class="number">1</span>][j - weight[i]] + value[i]<span class="comment">/*装入i*/</span>);</span><br></pre></td></tr></table></figure>
+
+<h6 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">dp</span>(n, vector&lt;<span class="keyword">int</span>&gt;(w + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line"><span class="comment">//放入第一个物品</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j = weight[<span class="number">0</span>]; j &lt; w; ++j)</span><br><span class="line">    dp[<span class="number">0</span>][j] = value[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+
+<h6 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)    <span class="comment">//遍历物品</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= w; ++j)   <span class="comment">//遍历背包承重</span></span><br><span class="line">        <span class="keyword">if</span>(j - weight[i] &gt;= <span class="number">0</span>)</span><br><span class="line">        	dp[i][j] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - weight[i]] + value[i]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="滚动数组"><a href="#滚动数组" class="headerlink" title="滚动数组"></a>滚动数组</h4><h6 id="dp数组含义-1"><a href="#dp数组含义-1" class="headerlink" title="dp数组含义"></a>dp数组含义</h6><p>dp[i]表示承重为i的背包可装入的最大价值</p>
+<h6 id="递推公式-1"><a href="#递推公式-1" class="headerlink" title="递推公式"></a>递推公式</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);</span><br></pre></td></tr></table></figure>
+
+<h6 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h6 id="bianlishu"><a href="#bianlishu" class="headerlink" title="bianlishu"></a>bianlishu</h6><h6 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = w; j &gt;= weight; --j)  <span class="comment">//倒序遍历，防止同一物品多次放入背包</span></span><br><span class="line">        dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);</span><br></pre></td></tr></table></figure>
+
+<h6 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h6><h3 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h3>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-30T19:57:24+08:00"
-              content="2021-11-30">
-          11-30
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/30/%E6%96%87%E6%9C%AC%E6%9F%A5%E8%AF%A2%E7%A8%8B%E5%BA%8F/" itemprop="url">
-            <span itemprop="name">文本查询程序</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-19T09:23:35+08:00"
-              content="2021-11-19">
-          11-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/19/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" itemprop="url">
-            <span itemprop="name">反转链表</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-18T14:19:11+08:00"
-              content="2021-11-18">
-          11-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/18/k/" itemprop="url">
-            <span itemprop="name">矩阵求逆</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-18T13:19:11+08:00"
-              content="2021-11-18">
-          11-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/18/%E6%B1%82%E8%A1%8C%E5%88%97%E5%BC%8F/" itemprop="url">
-            <span itemprop="name">求行列式</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-17T22:00:21+08:00"
-              content="2021-11-17">
-          11-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/" itemprop="url">
-            <span itemprop="name">配置opencv-c++ opencv4</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-17T09:30:53+08:00"
-              content="2021-11-17">
-          11-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/17/%E9%93%BE%E8%A1%A8%EF%BC%9A%E8%99%9A%E6%8B%9F%E5%A4%B4%E8%8A%82%E7%82%B9/" itemprop="url">
-            <span itemprop="name">链表：虚拟头节点</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-17T09:24:06+08:00"
-              content="2021-11-17">
-          11-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/17/%E6%95%B0%E7%BB%84%EF%BC%9A%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" itemprop="url">
-            <span itemprop="name">数组：滑动窗口</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-17T08:01:52+08:00"
-              content="2021-11-17">
-          11-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/17/%E6%95%B0%E7%BB%84%EF%BC%9A%E5%8F%8C%E6%8C%87%E9%92%88/" itemprop="url">
-            <span itemprop="name">数组：双指针</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-16T19:05:59+08:00"
-              content="2021-11-16">
-          11-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/16/hexo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="url">
-            <span itemprop="name">hexo+github搭建博客</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        
 
 
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/" rel="prev" title="二叉树">
+      <i class="fa fa-chevron-left"></i> 二叉树
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -442,6 +367,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1%E8%83%8C%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">0-1背包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.</span> <span class="nav-text">二维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#dp%E6%95%B0%E7%BB%84%E5%90%AB%E4%B9%89"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">dp数组含义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%80%92%E6%8E%A8%E5%85%AC%E5%BC%8F"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">递推公式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84"><span class="nav-number">1.2.</span> <span class="nav-text">滚动数组</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#dp%E6%95%B0%E7%BB%84%E5%90%AB%E4%B9%89-1"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">dp数组含义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%80%92%E6%8E%A8%E5%85%AC%E5%BC%8F-1"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">递推公式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-1"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#bianlishu"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">bianlishu</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-1"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">1.2.0.6.</span> <span class="nav-text">应用举例</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85"><span class="nav-number">2.</span> <span class="nav-text">完全背包</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
