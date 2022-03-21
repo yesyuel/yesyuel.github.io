@@ -453,7 +453,8 @@
     <title>高精度计算PI</title>
     <url>/2022/03/20/%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97PI/</url>
     <content><![CDATA[<h3 id="计算PI"><a href="#计算PI" class="headerlink" title="计算PI"></a>计算PI</h3><p>利用反三角函数幂级展开式进行计算</p>
-<p><img src="/2022/03/20/%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97PI/Vito\source_posts\高精度计算PI\k.png"></p>
+<img src="/2022/03/20/%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97PI/k.png" style="zoom: 100%;">
+
 <p>经计算，取n = 2000可以保证前550位的精度</p>
 <h3 id="模拟大数运算"><a href="#模拟大数运算" class="headerlink" title="模拟大数运算"></a>模拟大数运算</h3><h5 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h5><p>从尾至头做乘法，处理进位。若有溢出，可在链表头部添加节点，也可以不加。</p>
 <p>1、添加节点后，增加的是整数位，小数点后位数不变，由于乘发结束后要除以一个更大的数</p>
