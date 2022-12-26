@@ -80,7 +80,7 @@
 <p>若github用户名为samual，则仓库名为 samual.github.io</p>
 <h4 id="网上生成博客"><a href="#网上生成博客" class="headerlink" title="网上生成博客"></a>网上生成博客</h4><p>在文件夹中找到并编辑 _config.yml，在最下方找到deploy；</p>
 <p>改为以下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: ssh://git@github.com:github用户名/github用户名.github.io.git <span class="comment">#新建github仓库的ssh地址</span></span><br><span class="line">  branch: main <span class="comment">#分支名</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: ssh://git@github.com:github用户名/github用户名.github.io.git </span><br><span class="line">  branch: main <span class="comment">#分支名</span></span><br></pre></td></tr></table></figure>
 
 <p>然后使用git</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save <span class="comment">#安装工具</span></span><br><span class="line">hexo g <span class="comment">#生成页面</span></span><br><span class="line">hexo d <span class="comment">#将本地内容上传到仓库</span></span><br></pre></td></tr></table></figure>
