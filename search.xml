@@ -197,52 +197,6 @@
       </tags>
   </entry>
   <entry>
-    <title>配置opencv-c++ opencv4</title>
-    <url>/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/</url>
-    <content><![CDATA[<h4 id="I-下载opencv"><a href="#I-下载opencv" class="headerlink" title="I 下载opencv"></a>I 下载opencv</h4><p>下载地址：<a href="https://opencv.org/">opencv</a></p>
-<p>在releases中下载Windows版本</p>
-<p>注意安装路径</p>
-<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k1.png" style="zoom: 49%;">
-
-<h4 id="II-配置环境变量"><a href="#II-配置环境变量" class="headerlink" title="II 配置环境变量"></a>II 配置环境变量</h4><p>此电脑–&gt;属性–&gt;高级系统设置–&gt;环境变量</p>
-<p>在系统变量中选择Path，编辑</p>
-<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k2.png" style="zoom:50%;">
-
-<p>添加</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#opencv文件中bin的路径</span></span><br><span class="line"><span class="comment">#例如</span></span><br><span class="line">C:\Leon\opencv\build\x64\vc15\bin</span><br></pre></td></tr></table></figure>
-
-<h4 id="III-vs2019相关配置"><a href="#III-vs2019相关配置" class="headerlink" title="III vs2019相关配置"></a>III vs2019相关配置</h4><h5 id="1-包含目录与库目录"><a href="#1-包含目录与库目录" class="headerlink" title="1.包含目录与库目录"></a>1.包含目录与库目录</h5><p>新建一个C++空项目，Debug切换到 X64；</p>
-<p>点击view–&gt;other windows-&gt;property manager</p>
-<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k3.png" style="zoom: 60%;">
-
-<p>右击Debug|x64，选择properties</p>
-<p><img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows%5Ck4.png"></p>
-<p>在VC++ Directories中编辑Include Directories与Library Directories</p>
-<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k5.png" style="zoom:80%;">
-
-<p>Include Directories 中添加</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#注意修改路径</span></span><br><span class="line">E:\leon\opencv\build\include</span><br><span class="line">E:\leon\opencv\build\include\opencv2</span><br></pre></td></tr></table></figure>
-
-<p>Library Directories 中</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">E:\leon\opencv\build\x64\vc14\lib</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-链接器"><a href="#2-链接器" class="headerlink" title="2.链接器"></a>2.链接器</h5><p>Linker–&gt;Input–&gt;Additional Dependencies添加</p>
-<p>opencv_world453d.lib</p>
-<p><strong>注意453是版本号，其他版本请修改</strong></p>
-<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k6.png" style="zoom:80%;">
-
-<h4 id="IV-测试"><a href="#IV-测试" class="headerlink" title="IV 测试"></a>IV 测试</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Mat img = <span class="built_in">imread</span>(<span class="string">&quot;C:\\opencvtest\\test01.png&quot;</span>);    <span class="comment">//引号内选一张自己计算机内的图片的路径</span></span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;success&quot;</span>, img);    <span class="comment">//打开一个窗口，显示图片</span></span><br><span class="line">	<span class="built_in">waitKey</span>(<span class="number">0</span>);    <span class="comment">//在键盘敲入字符前程序处于等待状态</span></span><br><span class="line">	<span class="built_in">destroyAllWindows</span>();    <span class="comment">//关闭所有窗口</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>若成功显示图片则配置完成</p>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>opencv</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二叉树</title>
     <url>/2021/12/28/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Definition for a binary tree node.</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode *left;</span><br><span class="line">    TreeNode *right;</span><br><span class="line">    <span class="built_in">TreeNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="keyword">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="keyword">int</span> x, TreeNode *left, TreeNode *right) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(left), <span class="built_in">right</span>(right) &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -291,6 +245,52 @@
       </categories>
       <tags>
         <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>配置opencv-c++ opencv4</title>
+    <url>/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/</url>
+    <content><![CDATA[<h4 id="I-下载opencv"><a href="#I-下载opencv" class="headerlink" title="I 下载opencv"></a>I 下载opencv</h4><p>下载地址：<a href="https://opencv.org/">opencv</a></p>
+<p>在releases中下载Windows版本</p>
+<p>注意安装路径</p>
+<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k1.png" style="zoom: 49%;">
+
+<h4 id="II-配置环境变量"><a href="#II-配置环境变量" class="headerlink" title="II 配置环境变量"></a>II 配置环境变量</h4><p>此电脑–&gt;属性–&gt;高级系统设置–&gt;环境变量</p>
+<p>在系统变量中选择Path，编辑</p>
+<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k2.png" style="zoom:50%;">
+
+<p>添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#opencv文件中bin的路径</span></span><br><span class="line"><span class="comment">#例如</span></span><br><span class="line">C:\Leon\opencv\build\x64\vc15\bin</span><br></pre></td></tr></table></figure>
+
+<h4 id="III-vs2019相关配置"><a href="#III-vs2019相关配置" class="headerlink" title="III vs2019相关配置"></a>III vs2019相关配置</h4><h5 id="1-包含目录与库目录"><a href="#1-包含目录与库目录" class="headerlink" title="1.包含目录与库目录"></a>1.包含目录与库目录</h5><p>新建一个C++空项目，Debug切换到 X64；</p>
+<p>点击view–&gt;other windows-&gt;property manager</p>
+<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k3.png" style="zoom: 60%;">
+
+<p>右击Debug|x64，选择properties</p>
+<p><img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows%5Ck4.png"></p>
+<p>在VC++ Directories中编辑Include Directories与Library Directories</p>
+<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k5.png" style="zoom:80%;">
+
+<p>Include Directories 中添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#注意修改路径</span></span><br><span class="line">E:\leon\opencv\build\include</span><br><span class="line">E:\leon\opencv\build\include\opencv2</span><br></pre></td></tr></table></figure>
+
+<p>Library Directories 中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">E:\leon\opencv\build\x64\vc14\lib</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-链接器"><a href="#2-链接器" class="headerlink" title="2.链接器"></a>2.链接器</h5><p>Linker–&gt;Input–&gt;Additional Dependencies添加</p>
+<p>opencv_world453d.lib</p>
+<p><strong>注意453是版本号，其他版本请修改</strong></p>
+<img src="/2021/11/17/vs2019%E9%85%8D%E7%BD%AEopencv-c-Windows/k6.png" style="zoom:80%;">
+
+<h4 id="IV-测试"><a href="#IV-测试" class="headerlink" title="IV 测试"></a>IV 测试</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Mat img = <span class="built_in">imread</span>(<span class="string">&quot;C:\\opencvtest\\test01.png&quot;</span>);    <span class="comment">//引号内选一张自己计算机内的图片的路径</span></span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;success&quot;</span>, img);    <span class="comment">//打开一个窗口，显示图片</span></span><br><span class="line">	<span class="built_in">waitKey</span>(<span class="number">0</span>);    <span class="comment">//在键盘敲入字符前程序处于等待状态</span></span><br><span class="line">	<span class="built_in">destroyAllWindows</span>();    <span class="comment">//关闭所有窗口</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>若成功显示图片则配置完成</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>opencv</tag>
       </tags>
   </entry>
   <entry>
